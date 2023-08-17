@@ -17,6 +17,10 @@ export function Todolist() {
     setTasks(newTasks);
   };
 
+  const deleteAllTasks = () => {
+    setTasks([]);
+  };
+
   return (
     <>
       <div className={style.todolist}>
@@ -27,8 +31,13 @@ export function Todolist() {
             onChange={(e) => setTaskInput(e.target.value)}
             placeholder="What to do today?"
           />
-          <button onClick={addTask}>Add</button>
+          <button className={style.addbutton} onClick={addTask}>Add</button>
         </div>
+        {tasks.length > 0 && (
+          <button className={style.deleteAllButton} onClick={deleteAllTasks}>
+            Delete All
+          </button>
+        )}
         <ul className={style.taskList}>
           {tasks.map((task, index) => (
             <li key={index} className={style.taskItem}>

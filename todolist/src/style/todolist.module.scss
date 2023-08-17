@@ -28,7 +28,23 @@
     border: none;
     cursor: pointer;
   }
+
+  .addbutton:hover{
+    background-color: green;
+    transition: 0.5s;
+  }
   
+  .deleteAllButton {
+    display: center;
+    margin: 10px 0;
+    background-color: #e6ab0a;
+  }
+
+  .deleteAllButton:hover{
+    background-color: #ad1928;
+    transition: 0.5s;
+  }
+
   .taskList {
     list-style-type: none;
     padding: 0;
