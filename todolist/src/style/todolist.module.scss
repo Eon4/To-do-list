@@ -48,6 +48,7 @@
   .deletebutton:hover{
     background-color: #ad1928;
     transition: 0.5s;
+    transform: rotate(180deg)
   }
 
   .taskList {
