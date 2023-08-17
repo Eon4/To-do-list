@@ -1,16 +1,43 @@
-import { useState } from "react";
+import React, { useState } from 'react';
+import style from '../style/todolist.module.scss';
 
 export function Todolist() {
-  const [name, setName] = useState("Luna");
-  
-  
-  return (
-    <div>
-            <h1>TO DO</h1>
+  const [tasks, setTasks] = useState([]);
+  const [taskInput, setTaskInput] = useState('');
 
-        
-    
-    <input placeholder={"Skriv dit to do ting her"} value={name} onChange={(event) => setName(event.target.value)} />
-</div>
-)
+  const addTask = () => {
+    if (taskInput.trim() !== '') {
+      setTasks([...tasks, taskInput]);
+      setTaskInput('');
+    }
+  };
+
+  const deleteTask = (index) => {
+    const newTasks = tasks.filter((_, i) => i !== index);
+    setTasks(newTasks);
+  };
+
+  return (
+    <>
+      <div className={style.todolist}>
+        <div className={style.inputContainer}>
+          <input
+            type="text"
+            value={taskInput}
+            onChange={(e) => setTaskInput(e.target.value)}
+            placeholder="What to do today?"
+          />
+          <button onClick={addTask}>Add</button>
+        </div>
+        <ul className={style.taskList}>
+          {tasks.map((task, index) => (
+            <li key={index} className={style.taskItem}>
+              {task}
+              <button onClick={() => deleteTask(index)}>Delete</button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
+  );
 }
