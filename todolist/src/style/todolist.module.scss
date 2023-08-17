@@ -37,10 +37,15 @@
   .deleteAllButton {
     display: center;
     margin: 10px 0;
-    background-color: #e6ab0a;
+    // background-color: #e6ab0a;
   }
 
   .deleteAllButton:hover{
+    background-color: #ad1928;
+    transition: 0.5s;
+  }
+
+  .deletebutton:hover{
     background-color: #ad1928;
     transition: 0.5s;
   }

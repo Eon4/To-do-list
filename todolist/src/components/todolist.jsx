@@ -42,7 +42,7 @@ export function Todolist() {
           {tasks.map((task, index) => (
             <li key={index} className={style.taskItem}>
               {task}
-              <button onClick={() => deleteTask(index)}>Delete</button>
+              <button className={style.deletebutton} onClick={() => deleteTask(index)}>X</button>
             </li>
           ))}
         </ul>
